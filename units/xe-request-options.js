@@ -8,7 +8,7 @@
 function makeRequestOptions(from, to) {
 	return {
 		uri: 'http://www.xe.com/currencyconverter/convert/',
-		timeout: 3000,
+		timeout: 10000,
 		qs: {
 			Amount: 1,
 			From: from, // USD

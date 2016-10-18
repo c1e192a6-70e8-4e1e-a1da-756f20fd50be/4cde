@@ -28,4 +28,9 @@ boot(app, __dirname, function (err) {
 		require('express-repl-toolkit')(app);
 		app.start();
 	}
+	app.emit('READY_FOR_TEST');
+});
+app._ready = false;
+app.once('READY_FOR_TEST', function () {
+	app._ready = true;
 });
