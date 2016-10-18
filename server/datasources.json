@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongo": {
+    "host": "ds041586.mlab.com",
+    "port": 41586,
+    "database": "exchange-rates",
+    "password": "da1a35d1",
+    "name": "mongo",
+    "user": "user",
+    "connector": "mongodb"
+  }
+}
