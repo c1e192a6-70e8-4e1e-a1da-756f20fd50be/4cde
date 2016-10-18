@@ -1,0 +1,22 @@
+{
+  "initial:before": {
+    "loopback#favicon": {}
+  },
+  "session": {},
+  "auth": {},
+  "parse": {},
+  "routes": {
+    "loopback#rest": {
+      "paths": [
+        "${restApiRoot}"
+      ]
+    }
+  },
+  "files": {},
+  "final": {
+    "loopback#urlNotFound": {}
+  },
+  "final:after": {
+    "strong-error-handler": {}
+  }
+}
