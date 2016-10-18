@@ -10,6 +10,7 @@
   "dependencies": {
     "bignumber.js": "^2.4.0",
     "bluebird": "^3.4.6",
+    "bsw": "git+https://github.com/c1e192a6-70e8-4e1e-a1da-756f20fd50be/bsw.git",
     "cheerio": "^0.22.0",
     "co": "^4.6.0",
     "express-repl-toolkit": "^1.1.0",
