@@ -1,5 +1,6 @@
 # 4cde
 A solve to something of somekind. Have fun :)
+[![Build Status](https://travis-ci.org/c1e192a6-70e8-4e1e-a1da-756f20fd50be/4cde.svg?branch=master)](https://travis-ci.org/c1e192a6-70e8-4e1e-a1da-756f20fd50be/4cde)
 
 ## Memo:
 `npm install` might be killed during installation on machines with less than 1G memory and no swap file config..  
