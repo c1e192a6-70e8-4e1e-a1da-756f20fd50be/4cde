@@ -19,7 +19,7 @@ Start a loopback Server in repl mode.
 	- Loopback's ORM - for being lazy...
 2. Beanstalkd workers
 	- `Aftership/bsw` ... this is kind of cheating.
-	- forked version of `Aftership/bsw` which emits event when a job is reserved and finished. [lnik](https://github.com/c1e192a6-70e8-4e1e-a1da-756f20fd50be/bsw)
+	- forked version of `Aftership/bsw` which emits event when a job is reserved and finished. [link](https://github.com/c1e192a6-70e8-4e1e-a1da-756f20fd50be/bsw)
 	- `./units/bsw-handler.js` bsw-handler
 	- `./units/bsw-worker.js` bsw-worker monuter.
 	- `./units/rate-extract-job` generator function to complete the task.
