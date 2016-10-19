@@ -1,11 +1,10 @@
 'use strict';
 const app = require('../server/server.js');
 const assert = require('assert');
-const co = require('co');
-const rateExtractJob = require('../units/rate-extract-job');
+const logger = require('../units/logger.js');
 
-describe('The job extracting exchange rate from co.', function () {
-	let exchangeRateInstance;
+describe('The Logger.', function () {
+	let logInstance;
 	before(function (done) {
 		if (app._ready) {
 			return done();
@@ -15,12 +14,10 @@ describe('The job extracting exchange rate from co.', function () {
 		});
 		return undefined;
 	});
-	it('Should able to get exchange rate', function (done) {
+	it('Should be able to create a log', function (done) {
 		this.timeout(10000);
-		co(function* () {
-			exchangeRateInstance = yield co(rateExtractJob({from: 'HKD', to: 'USD'}));
-			return exchangeRateInstance;
-		}).then(function (resolve) {
+		logger('testing').then(function (resolvedInstance) {
+			logInstance = resolvedInstance;
 			done();
 		}, function (reject) {
 			throw reject;
@@ -28,15 +25,15 @@ describe('The job extracting exchange rate from co.', function () {
 	});
 
 	it('Should be a valid exchange rate instance', function () {
-		assert(exchangeRateInstance.isValid());
+		assert(logInstance.isValid());
 	});
 
-	it('Should have been saved to database', function () {
-		assert(Boolean(exchangeRateInstance.id));
+	it('Should have saved the log to database', function () {
+		assert(Boolean(logInstance.id));
 	});
 
 	it('Should be able to delete the record by calling destroy on it', function (done) {
-		exchangeRateInstance.destroy(function (err, info) {
+		logInstance.destroy(function (err, info) {
 			if (err) throw err;
 			assert(info.count === 1);
 			done();
@@ -44,7 +41,7 @@ describe('The job extracting exchange rate from co.', function () {
 	});
 
 	it('The record should have been deleted from database now', function (done) {
-		exchangeRateInstance.reload(function (err, instance) {
+		logInstance.reload(function (err, instance) {
 			assert(!instance);
 			done();
 		});
