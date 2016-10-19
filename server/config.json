@@ -21,7 +21,7 @@
     "handleErrors": false
   },
   "legacyExplorer": false,
-  "BS_TUBE": "yshing",
-  "BS_HOST": "127.0.0.1",
+  "BS_TUBE": "c1e192a6-70e8-4e1e-a1da-756f20fd50be",
+  "BS_HOST": "challenge.aftership.net",
   "BS_PORT": "11300"
 }
