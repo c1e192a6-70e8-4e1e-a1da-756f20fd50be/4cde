@@ -26,6 +26,8 @@ boot(app, __dirname, function (err) {
 	// start the server if `$ node server.js`
 	if (require.main === module) {
 		require('express-repl-toolkit')(app);
+		console.log(`BSW worker listening on tube: ${app.get('BS_TUBE')}  host: ${app.get('BS_HOST')}  port: ${app.get('BS_PORT')}`);
+		app._bswWorker.start();
 		app.start();
 	}
 	app.emit('READY_FOR_TEST');

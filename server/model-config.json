@@ -16,5 +16,9 @@
   "Rates": {
     "dataSource": "mongo",
     "public": true
+  },
+  "Log": {
+    "dataSource": "mongo",
+    "public": true
   }
 }
