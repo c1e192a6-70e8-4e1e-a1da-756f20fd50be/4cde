@@ -13,11 +13,12 @@ function rateExtractor(from, to, text) {
 		throw new TypeError('RATE_EXTRACTOR_EXPECT_STING');
 	}
 	const tightText = text.replace(/\r\n|\r|\n|\s/g, '');
-	/* The exchange rates RegExp pattern for text without spaces */
+	// The exchange rates RegExp pattern for text without spaces
 	const exchange_rate_pattern = new RegExp(`[1|1\.00]${from}=[0-9]+\.[0-9]+${to}`, 'gi'); // eslint-disable-line
 
 	const exchange_rate_matches = tightText.match(exchange_rate_pattern);
 
+	// Test if all matches suggest the same exchange rate.
 	const exchange_rate = exchange_rate_matches.reduce((prev, curr) => {
 		/* Test if all matched exchange rate tells the same sotry */
 		if (prev === undefined) return new BigNumber(getRateString(curr));
