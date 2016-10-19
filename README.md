@@ -1,6 +1,10 @@
 # 4cde
 A solve to something of somekind. Have fun :)
 
+## Memo:
+`npm install` might be killed during installation on machines with less than 1G memory and no swap file config..  
+npm 3+ is desired.
+
 ## Test
 Expect local beanstalkd and mongo server. `NODE_ENV` is set to test.
 
