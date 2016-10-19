@@ -2,6 +2,7 @@
   "restApiRoot": "/api",
   "host": "0.0.0.0",
   "port": 13370,
+  "view engine": "ejs",
   "remoting": {
     "context": false,
     "rest": {
