@@ -14,18 +14,27 @@ let client = new Client(app.get('BS_HOST'), app.get('BS_PORT'));
 
 client.on('connect', function () {
 	client.use(app.get('BS_TUBE'), function (err, tname) {
-		client.put(0, 0, 60, JSON.stringify({from: 'usd', to: 'hkd'}), () => {});
-		if (replServer) {
-			replServer.context.seed = function (from, to) {
-				console.log('seed a new job:', {from, to});
-				client.put(0, 0, 60, JSON.stringify({from, to}), () => {});
-			};
-			console.log('Type seed("usd", "hkd"); to seed a  job.');
-		}
+	// 	client.put(0, 0, 60, JSON.stringify({from: 'usd', to: 'hkd'}), () => {});
+	// 	if (replServer) {
+	// 		replServer.context.seed = function (from, to) {
+	// 			console.log('seed a new job:', {from, to});
+	// 			client.put(0, 0, 60, JSON.stringify({from, to}), () => {});
+	// 		};
+	// 		console.log('Type seed("usd", "hkd"); to seed a  job.');
+	// 	}
 	});
 });
 
 client.connect();
 
+replServer.context.seed = function (from, to) {
+	console.log('seed a new job:', {from, to});
+	client.put(0, 0, 60, JSON.stringify({from, to}), (err, jobid) => {
+		if (err) return console.error(`Error putting job converting ${from} to ${to}`);
+		console.log(`Successfully put a job converting ${from} to ${to}. JobId: ${jobid}`);
+		return undefined;
+	});
+};
+console.log('Type seed("usd", "hkd"); to seed a  job.');
 
 replServer.context.client = client;
